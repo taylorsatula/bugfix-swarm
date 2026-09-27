@@ -11,57 +11,72 @@ fix what was accepted and verify by live execution. The registry is the
 "run a bug hunt / swarm / audit / sweep"; the funnel returns to you at every
 decision point.
 
-## Requirements
+## Install
 
-- **Any coding-agent harness** — install-verified on **Pi, Claude Code, Codex,
-  and OpenCode**; see the caveats below. The doctrine is harness-agnostic. The
-  runbook speaks Pi's tool vocabulary (`SubagentWorkflow`, `checkbox_picker`,
-  the four swarm subagent types), so on other harnesses your agent substitutes
-  its native equivalents: Claude Code dispatches the emitted agents via the
-  Task tool, and harnesses without a subagent component inline the role
-  prompts from `agents/*.md`.
+All five harnesses below were install-verified against their real CLIs on
+2026-09-27. Pick yours:
+
+### Pi
+
+```sh
+pi install git:github.com/taylorsatula/bugfix-swarm
+cp agents/*.md ~/.pi/agent/agents/   # Pi plugins can't register subagents
+```
+
+### Claude Code
+
+```sh
+claude plugin marketplace add taylorsatula/bugfix-swarm
+claude plugin install bugfix-swarm@bugfix-swarm-dev
+```
+
+All 7 skills and 4 agents register (~2k always-on tokens).
+
+### Codex
+
+```sh
+codex plugin marketplace add taylorsatula/bugfix-swarm
+codex plugin add bugfix-swarm@bugfix-swarm-dev
+```
+
+### OpenCode
+
+In your project root:
+
+```sh
+opencode plugin "bugfix-swarm@git+https://github.com/taylorsatula/bugfix-swarm.git"
+cp <plugin-checkout>/.opencode/agent/*.md .opencode/agent/  # see note below
+```
+
+The skills load from the package; the four agents register only when OpenCode
+runs inside this repo, so for a swarm run either clone the repo and work
+there, or copy `.opencode/agent/*.md` from a clone into your project's
+`.opencode/agent/`.
+
+### Hermes
+
+```sh
+hermes plugins install taylorsatula/bugfix-swarm --enable
+```
+
+**Blocked by Hermes' content scanner by default.** A bug-hunt corpus reads
+as dangerous to it — "Never: Edit orientation maps…" prohibition lines score
+as persistence instructions, and the tool vocabulary (`websocat`, `py-spy`)
+scores as network/execution hazards. `--force` cannot override the dangerous
+verdict; installing requires `plugins.scan_on_install: false` in your Hermes
+config. Your call whether that trade is acceptable.
+
+## Requirements (after install)
+
 - **kata CLI** — `brew install kata`. The run registry lives in kata;
   `kata init` binds each project before its first run decision.
 - **Models**: the four swarm agents pin `lunaroute/*` routes in their
   frontmatter. If you don't have those routes, edit the `model:` line in
   `agents/*.md` — that is the only portability edit.
-
-### Per-harness notes (verified 2026-09-27)
-
-- **Pi** — `pi install` works end to end; a fresh session enumerates all
-  seven skills. Since Pi plugins cannot register subagent definitions, copy
-  the agents: `cp agents/*.md ~/.pi/agent/agents/`.
-- **Claude Code** — marketplace add + plugin install works; the component
-  inventory shows all 7 skills and 4 agents (~2k always-on tokens).
-- **Codex** — marketplace add + plugin add works; installs enabled with the
-  full corpus in the plugin cache.
-- **OpenCode** — git package install loads the skills (verified via startup
-  logs), but the four agents register only when OpenCode runs inside this
-  repo (developer mode); a package-installed plugin's `.opencode/agent/` is not
-  read. For a swarm run, clone the repo or copy `.opencode/agent/*.md` into
-  your project's `.opencode/agent/`.
-- **Hermes** — blocked at install by Hermes' content scanner (DANGEROUS
-  verdict, 40 findings): every finding is the scanner pattern-matching a
-  bug-hunt corpus — prohibition lines ("Never: Edit orientation maps…") read
-  as instructions, tool vocabulary (`websocat`, `py-spy`, rg patterns) read
-  as network/execution hazards. `--force` cannot override a dangerous
-  verdict; installing requires `plugins.scan_on_install: false` in your
-  Hermes config — your call whether that trade is acceptable.
-
-## Installing
-
-Each harness's installer is in `docs/install/`. For Pi:
-
-```
-pi install git:github.com/taylorsatula/bugfix-swarm
-```
-
-Then one manual step — Pi plugins can register skills but not subagent
-definitions, so copy the four swarm agents where Pi looks for them:
-
-```
-cp agents/*.md ~/.pi/agent/agents/
-```
+- **Tool vocabulary**: the runbook speaks Pi's tool names
+  (`SubagentWorkflow`, `checkbox_picker`, the four swarm subagent types), so
+  on other harnesses your agent substitutes its native equivalents — Claude
+  Code dispatches the emitted agents via the Task tool.
 
 ## First run
 
