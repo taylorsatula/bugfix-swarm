@@ -13,17 +13,22 @@ decision point.
 
 ## Requirements
 
-- **Pi** (`pi-coding-agent`) is the reference harness. On other harnesses the
-  skills install and read fine, but the runbook drives Pi-native machinery
-  (the `SubagentWorkflow` tool, the four swarm subagent types,
-  `checkbox_picker`) — expect to adapt before a run there.
+- **Any coding-agent harness** — everyharness generates native installers for
+  12 of them (see `docs/install/`); the doctrine is harness-agnostic. The
+  runbook speaks Pi's tool vocabulary (`SubagentWorkflow`, `checkbox_picker`,
+  the four swarm subagent types), so on other harnesses your agent substitutes
+  its native equivalents: Claude Code dispatches the emitted agents via the
+  Task tool, and harnesses without a subagent component inline the role
+  prompts from `agents/*.md`.
 - **kata CLI** — `brew install kata`. The run registry lives in kata;
   `kata init` binds each project before its first run decision.
 - **Models**: the four swarm agents pin `lunaroute/*` routes in their
   frontmatter. If you don't have those routes, edit the `model:` line in
   `agents/*.md` — that is the only portability edit.
 
-## Installing (Pi)
+## Installing
+
+Each harness's installer is in `docs/install/`. For Pi:
 
 ```
 pi install git:github.com/taylorsatula/bugfix-swarm
@@ -35,9 +40,6 @@ definitions, so copy the four swarm agents where Pi looks for them:
 ```
 cp agents/*.md ~/.pi/agent/agents/
 ```
-
-Restart your session and the seven skills appear with their descriptions
-(the gating rule travels in the `bugfix-swarm` description itself).
 
 ## First run
 
