@@ -13,8 +13,8 @@ decision point.
 
 ## Requirements
 
-- **Any coding-agent harness** — everyharness generates native installers for
-  12 of them (see `docs/install/`); the doctrine is harness-agnostic. The
+- **Any coding-agent harness** — install-verified on **Pi, Claude Code, Codex,
+  and OpenCode**; see the caveats below. The doctrine is harness-agnostic. The
   runbook speaks Pi's tool vocabulary (`SubagentWorkflow`, `checkbox_picker`,
   the four swarm subagent types), so on other harnesses your agent substitutes
   its native equivalents: Claude Code dispatches the emitted agents via the
@@ -25,6 +25,28 @@ decision point.
 - **Models**: the four swarm agents pin `lunaroute/*` routes in their
   frontmatter. If you don't have those routes, edit the `model:` line in
   `agents/*.md` — that is the only portability edit.
+
+### Per-harness notes (verified 2026-09-27)
+
+- **Pi** — `pi install` works end to end; a fresh session enumerates all
+  seven skills. Since Pi plugins cannot register subagent definitions, copy
+  the agents: `cp agents/*.md ~/.pi/agent/agents/`.
+- **Claude Code** — marketplace add + plugin install works; the component
+  inventory shows all 7 skills and 4 agents (~2k always-on tokens).
+- **Codex** — marketplace add + plugin add works; installs enabled with the
+  full corpus in the plugin cache.
+- **OpenCode** — git package install loads the skills (verified via startup
+  logs), but the four agents register only when OpenCode runs inside this
+  repo (developer mode); a package-installed plugin's `.opencode/agent/` is not
+  read. For a swarm run, clone the repo or copy `.opencode/agent/*.md` into
+  your project's `.opencode/agent/`.
+- **Hermes** — blocked at install by Hermes' content scanner (DANGEROUS
+  verdict, 40 findings): every finding is the scanner pattern-matching a
+  bug-hunt corpus — prohibition lines ("Never: Edit orientation maps…") read
+  as instructions, tool vocabulary (`websocat`, `py-spy`, rg patterns) read
+  as network/execution hazards. `--force` cannot override a dangerous
+  verdict; installing requires `plugins.scan_on_install: false` in your
+  Hermes config — your call whether that trade is acceptable.
 
 ## Installing
 
