@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "tool": "everyharness@1.0.0",
+  "files": {
+    ".agents/plugins/marketplace.json": {
+      "sha256": "cdfc5cd22bc46d4c4c2964e1b309488433f5d6b4f98d8a14698a248d3db4bad9"
+    },
+    ".claude-plugin/marketplace.json": {
+      "sha256": "785ee7db60dcc8d88dac8434fe84cf457ca917d33b04dff1c373b2b631db8701"
+    },
+    ".claude-plugin/plugin.json": {
+      "sha256": "41c464b3dec5c5ed6a27fa381dc7fd8a25d3ecea178ac5079378090da6bf0ec6"
+    },
+    ".codex-plugin/plugin.json": {
+      "sha256": "c1228d0374897a3a93c757e23557535f99208e19b66b9500fd6ead4ca6c54f00"
+    },
+    ".cursor-plugin/plugin.json": {
+      "sha256": "2dc585e28350365c5d42643695642826a3da0da959319df0f9f419ce77bbe657"
+    },
+    ".devin-plugin/plugin.json": {
+      "sha256": "41c464b3dec5c5ed6a27fa381dc7fd8a25d3ecea178ac5079378090da6bf0ec6"
+    },
+    ".hermes-plugin/__init__.py": {
+      "sha256": "2fbb1a04f80f40c39e1dd528324fafada7ec02cf13ae99389f38b70bf6411edb"
+    },
+    ".hermes-plugin/plugin.yaml": {
+      "sha256": "e9b7ee79ae526e2f1f5ff3bab466a8ae34fb67d6e78281c51638361f7dba5bde"
+    },
+    ".kimi-plugin/plugin.json": {
+      "sha256": "23c7a6a9005717c35e910475b093a31d10b6d39484a3fb2e17b08236dabce609"
+    },
+    ".muse-plugin/plugin.json": {
+      "sha256": "f5da189844ec21202ca202e48372b44d90da9f22ff138ea7046f553192a7e8c4"
+    },
+    ".opencode/agent/swarm-dedupe.md": {
+      "sha256": "bfbdc5fbab51c7348f204fc6fb6078af87a9caa1beb54e5e1bcfca0409ec5818"
+    },
+    ".opencode/agent/swarm-executor.md": {
+      "sha256": "816046d6a381991d910f10f959ccad4f01ecfe7f206eae6efe39c967f50abc8c"
+    },
+    ".opencode/agent/swarm-investigator.md": {
+      "sha256": "f267872efe73769491c5b387a6271aef797c1fda9d106c5711012585360ded24"
+    },
+    ".opencode/agent/swarm-verifier.md": {
+      "sha256": "a98fb3161b751a434cd1f7a974d39f40a57b78764f37db5572f21ef19cb74aea"
+    },
+    ".opencode/plugins/bugfix-swarm.js": {
+      "sha256": "de34c2a946028a5116ff9b2fedd826d1e24248570ea8677e4fedebe204e1b791"
+    },
+    ".pi/extensions/bugfix-swarm.ts": {
+      "sha256": "1f155621966041b3586b9cc89fae3aa54ae00887abae8d75b245a3a9b8e3f134"
+    },
+    "GEMINI.md": {
+      "sha256": "adc5b1de53ca966b91f065897899b806329845e1b4aeb4640aeb292ba5cadb69"
+    },
+    "docs/install/agent-plugins-1.0.md": {
+      "sha256": "1c77a86d4c8c02f6205ceb27fb700d09ae6854ce1548f20336486376ab4d3eb1"
+    },
+    "docs/install/agents-marketplace.md": {
+      "sha256": "c0fcfee28ab44c3bae16480528520c3035da31e6bfe0fc25fb635bc7aa581fb3"
+    },
+    "docs/install/claude-code.md": {
+      "sha256": "923e24150ae322e3a18211e45e07f8a0a673a47d1285000fdafeb459e3a177a1"
+    },
+    "docs/install/codex.md": {
+      "sha256": "a35e732cb580eb0fe9c22aecd6155e342071ce84f7984f61f3efd167adbb7861"
+    },
+    "docs/install/cursor.md": {
+      "sha256": "5c33b40e648a6ccb026429839bfd9e2d3ee45907e3402d6815362eff3491d24f"
+    },
+    "docs/install/devin.md": {
+      "sha256": "3302de3bac10067d6d99405b44e9ab6cd179ea2ca6c5bce9cac4d260e591f36f"
+    },
+    "docs/install/gemini.md": {
+      "sha256": "50b5b687af4150cec8846d7a0746556abb6cc4331de9fed031bad2240726488b"
+    },
+    "docs/install/hermes.md": {
+      "sha256": "0b819344067e8694d98838ba8afb964649ec5ca17c1ef9596a990e3d8d4bcda2"
+    },
+    "docs/install/kimi.md": {
+      "sha256": "fa3295dbee032224f950f9bb4d269e89cdac51d340d034907d574459ce530c35"
+    },
+    "docs/install/muse.md": {
+      "sha256": "7222b0cec8fa4cf307abadba05a890893430cfb726c8973d44f398cd522e60b7"
+    },
+    "docs/install/opencode.md": {
+      "sha256": "663f6d0fbe94b166aefa2f9bc4947de2b7698459d5f470b4b7bff75b9bbe03ae"
+    },
+    "docs/install/pi.md": {
+      "sha256": "4c0786a0651b46df3c7caedea6cb628fe3aab047b9c72955d840d544580bf37f"
+    },
+    "docs/support-matrix.md": {
+      "sha256": "0b6d63ce09a243ffd23e3e1cab20e11ce1001fe6e84a0c23d5d7de91fa0d0ac4"
+    },
+    "gemini-extension.json": {
+      "sha256": "f23970da04330aa883e970f210adca5f8392597ed73937935bfc0efaf268513b"
+    },
+    "package.json": {
+      "sha256": "a92b4aae59be186cff84c9edac6de6e4fca6e3a6f30983ce9b7e01c2bcb73e65"
+    },
+    "plugin.json": {
+      "sha256": "502677536eac8871743f8619a8a0895ea1f599510f7c719c362f2712a4078bc3"
+    }
+  }
+}

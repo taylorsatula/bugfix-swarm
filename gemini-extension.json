@@ -1,0 +1,6 @@
+{
+  "name": "bugfix-swarm",
+  "description": "USER-GATED read-only static-analysis bug-hunt swarm. A human opens a run; waves of hunter and adversarial-verifier subagents write report files and return envelopes; a dedupe agent merges them into one findings report; the human decides every repair at a picker; executor agents fix what was accepted and verify by live execution. The registry is the kata issue tracker. Never load autonomously — the human opens every run.",
+  "version": "1.0.0",
+  "contextFileName": "GEMINI.md"
+}

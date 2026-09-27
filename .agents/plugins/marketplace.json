@@ -1,0 +1,19 @@
+{
+  "name": "bugfix-swarm-dev",
+  "interface": {
+    "displayName": "bugfix-swarm"
+  },
+  "plugins": [
+    {
+      "name": "bugfix-swarm",
+      "source": {
+        "source": "url",
+        "url": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      }
+    }
+  ]
+}
