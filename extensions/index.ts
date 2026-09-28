@@ -9,7 +9,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { ExtensionAPI } from '@earendil-works/pi-coding-agent'
 
-import { installCheckboxPickerTool } from './checkbox-picker/tool.ts'
+import { installCheckboxPickerTool } from '@taylursatula/pi-checkbox-picker/extensions/checkbox-picker/tool.ts'
 
 const packageRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 

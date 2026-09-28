@@ -12,10 +12,10 @@ cp agents/*.md ~/.pi/agent/agents/   # Pi packages can't register subagent defin
 ```
 
 The package bundles one extension that registers the seven skills and the
-`checkbox_picker` tool (the Phase 7 picker instrument), vendored from
-[@taylursatula/pi-checkbox-picker](https://github.com/taylursatula) — if you
-already run that standalone package, remove one of the two: Pi refuses to
-start a session with conflicting tool registrations.
+`checkbox_picker` tool (the Phase 7 picker instrument), pulled in as the npm
+dependency [@taylursatula/pi-checkbox-picker](https://www.npmjs.com/package/@taylursatula/pi-checkbox-picker)
+— if you already run that standalone package, remove one of the two: Pi
+refuses to start a session with conflicting tool registrations.
 
 ## Requirements
 
