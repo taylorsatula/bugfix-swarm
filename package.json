@@ -1,22 +1,23 @@
 {
   "name": "bugfix-swarm",
   "version": "1.0.0",
-  "description": "USER-GATED read-only static-analysis bug-hunt swarm. A human opens a run; waves of hunter and adversarial-verifier subagents write report files and return envelopes; a dedupe agent merges them into one findings report; the human decides every repair at a picker; executor agents fix what was accepted and verify by live execution. The registry is the kata issue tracker. Never load autonomously — the human opens every run.",
-  "author": {
-    "name": "taylorsatula"
-  },
+  "description": "USER-GATED read-only static-analysis bug-hunt swarm for Pi. A human opens a run; waves of hunter and adversarial-verifier subagents write report files and return envelopes; a dedupe agent merges them into one findings report; the human decides every repair at a picker; executor agents fix what was accepted and verify by live execution. The registry is the kata issue tracker. Never load autonomously — the human opens every run.",
   "repository": "https://github.com/taylorsatula/bugfix-swarm",
+  "author": { "name": "taylursatula" },
+  "license": "MIT",
   "type": "module",
-  "main": "./.opencode/plugins/bugfix-swarm.js",
   "pi": {
     "extensions": [
-      "./.pi/extensions/bugfix-swarm.ts"
+      "./extensions/index.ts"
     ],
     "skills": [
       "./skills"
     ]
   },
-  "keywords": [
-    "pi-package"
-  ]
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "keywords": ["pi-package"]
 }
